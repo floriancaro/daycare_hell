@@ -8,6 +8,8 @@ extends CharacterBody2D
 @onready var thinking_bubble: ColorRect = $ThinkingBubble
 @onready var label: Label = $ThinkingBubble/Label
 
+@onready var baby_manager: Node = %BabyManager
+
 @export var accel = 9
 
 var target: Node2D
@@ -44,32 +46,7 @@ func make_path(t):
 
 
 func choose_target():
-	# get all targets
-	var targets = get_tree().get_nodes_in_group("targets")
-	
-	# chose random target
-	var rng: RandomNumberGenerator = RandomNumberGenerator.new()
-	var i: int = rng.randi_range(0, len(targets)-1)
-	var chosen_target = targets[i]
-	
-	## check if already chosen by other baby
-	#if chosen_target.is_chosen:
-		#pass
-	#else:
-		#return chosen_target
-	return chosen_target
-
-
-func find_closest_target():
-	var targets = get_tree().get_nodes_in_group("targets")
-	# start with first target as closest
-	var nearest_target = targets[0]
-	
-	# look through spawn nodes to see if any are closer
-	for t in targets:
-		if t.global_position.distance_to(self.global_position) < nearest_target.global_position.distance_to(self.global_position):
-			nearest_target = t
-	return nearest_target
+	return baby_manager.get_target(target)
 
 
 func _on_timer_timeout():
