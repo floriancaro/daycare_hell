@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://c8h025ptrrj87"]
 
-[ext_resource type="Script" path="res://scenes/baby_manager.gd" id="1_2epic"]
+[ext_resource type="Script" path="res://scripts/baby_manager.gd" id="1_2epic"]
 [ext_resource type="Texture2D" uid="uid://uexs11byfb2" path="res://assets/icon.svg" id="1_020dq"]
 [ext_resource type="PackedScene" uid="uid://bnfcjwohqdh4h" path="res://scenes/target.tscn" id="2_1q537"]
 [ext_resource type="PackedScene" uid="uid://dno2tvbw43lh5" path="res://scenes/baby.tscn" id="3_upyu1"]
